@@ -1,0 +1,654 @@
+{
+    
+    "swagger":"2.0",
+    "info":
+    {
+        "title":"ReadNow",
+        "description":"This is the API Specification for the library application backend.",
+        "contact":{"email":"tecyrose30@gmail.com"},
+        "license":{
+            "name":"MIT",
+            "url":"https://opensource.org/licenses/mit"
+        },
+        "version": "1.0.0"
+    },
+    "extrenalDocs":{
+        "description":"Get source code",
+        "url":"https://github.com/Hoga30/ReadNow"
+    },
+    "basePath":"/api/library",
+    "servers":
+    [
+        {
+            "url":"http://localhost:8000",
+            "description":"Local server"
+        },
+        {
+            "url":"https://libraryApp.onrender.com",
+            "description":"production server"
+        }
+    ],
+  
+ "schemes":["http","https"],
+    "tags":[
+        {
+            "name":"user",
+            "description":"Operation pertaining to books"
+        }
+    ],
+    "paths":{
+
+        "/users/signUp":
+{
+    "post":{
+        "tags":["user"],
+        "summary":"Create a new user",
+        "description":"Create a new user",
+        "parameters": [
+          {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                  "$ref": "#/component/schemas/user"
+              }
+          }
+      ],
+        "requestBody":{
+          "content":{
+            "application/json":{
+              "schema":{
+                "$ref":"#/component/schemas/user"
+              }
+            }
+          }
+        },
+        "responses":{
+          "201":{
+            "description":"User created",
+            "content":{
+              "application/json":{
+                "schema":{
+                  "$ref":"#/component/schemas/user"
+                }
+              }
+            }
+          },
+          "400":{
+            "description":"bad request -Validation error",
+            "content":{
+              "application/json":{
+                "schema":{
+                  "type":"object",
+                  "properties":{
+                    "message":{
+                      "type":"string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }  
+},
+
+"/users/signIn":
+{
+    "post":{
+"tags":["user"],
+"summary":"Sign in a user",
+"description":"Sign in a user",
+"parameters": [
+{
+    "name": "body",
+    "in": "body",
+    "required": true,
+    "schema": {
+        "$ref": "#/component/schemas/user"
+    }
+}],
+"requestBody":{
+    "content":{
+        "application/json":{
+            "schema":{
+                "$ref":"#/component/schemas/user"
+            }
+        }
+    }
+},
+"responses":{
+    "201":{
+        "description":"User created",
+        "content":{
+          "application/json":{
+            "schema":{
+              "$ref":"#/component/schemas/user"
+            }
+          }
+        }
+      },
+      "400":{
+        "description":"bad request -Validation error",
+        "content":{
+          "application/json":{
+            "schema":{
+              "type":"object",
+              "properties":{
+                "message":{
+                  "type":"string"
+                }
+              }
+            }
+          }
+        }
+      }
+
+}
+}
+},
+
+"/users/verify":
+{
+    "post":{
+        "tags":["user"],
+        "summary":"Verify a user",
+        "description":"Verify a user",
+        "parameters": [
+            {
+                "name": "body",
+                "in": "body",
+                "required": true,
+                "schema": {
+                    "$ref": "#/component/schemas/user"
+                }
+            }],
+            "requestBody":{
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "$ref":"#/component/schemas/user"
+                        }
+                    }
+                }
+            },
+            "responses":{
+                "201":{
+                    "description":"User created",
+                    "content":{
+                      "application/json":{
+                        "schema":{
+                          "$ref":"#/component/schemas/user"
+                        }
+                      }
+                    }
+                  },
+                  "400":{
+                    "description":"bad request -Validation error",
+                    "content":{
+                      "application/json":{
+                        "schema":{
+                          "type":"object",
+                          "properties":{
+                            "message":{
+                              "type":"string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+            }
+    }
+},
+
+"/users/forgotpassword":
+    {
+        "post":{
+        "tags":["user"],
+        "summary":"Forgot password",
+        "description":"Forgot password",
+        "parameters": [
+            {
+                "name": "body",
+                "in": "body",
+                "required": true,
+                "schema": {
+                    "$ref": "#/component/schemas/user"
+                }
+            }],
+            "requestBody":{
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "$ref":"#/component/schemas/user"
+                        }
+                    }
+                }
+            },
+            "responses":{
+                "201":{
+                    "description":"User created",
+                    "content":{
+                      "application/json":{
+                        "schema":{
+                          "$ref":"#/component/schemas/user"
+                        }
+                      }
+                    }
+                  },
+                  "400":{
+                    "description":"bad request -Validation error",
+                    "content":{
+                      "application/json":{
+                        "schema":{
+                          "type":"object",
+                          "properties":{
+                            "message":{
+                              "type":"string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+            }
+    }
+},
+
+"/users/resetpassword":{
+    "post":{
+        "tags":["user"],
+        "summary":"Reset password",
+        "description":"Reset password",
+        "parameters": [
+            {
+                "name": "body",
+                "in": "body",
+                "required": true,
+                "schema": {
+                    "$ref": "#/component/schemas/user"
+                }
+            }],
+            "requestBody":{
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "$ref":"#/component/schemas/user"
+                        }
+                    }
+                }
+            },
+            "responses":{
+                "201":{
+                    "description":"User created",
+                    "content":{
+                      "application/json":{
+                        "schema":{
+                          "$ref":"#/component/schemas/user"
+                        }
+                      }
+                    }
+                  },
+                  "400":{
+                    "description":"Bad request -Validation error",
+                    "content":{
+                      "application/json":{
+                        "schema":{
+                          "type":"object",
+                          "properties":{
+                            "message":{
+                              "type":"string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+            }
+    }
+},
+        
+"/books/add":{
+"post":
+{
+    "tags":["book"],
+    "summary":"Add a new book",
+    "description":"add a new book with  the provided details",
+    "parameters":[
+        {
+            "name":"body",
+            "in":"body",
+            "required":true,
+            "schema":{"$ref":"#/component/schemas/book"}
+        }
+    ],
+    "requestBody":{
+        "content":{
+            "application/json":
+            {
+                "schema":{
+                    "$ref": "#/component/schemas/book"
+                }
+            }
+        }
+    },
+    "responses":{
+        "201":
+        {
+            "description":"Book addedsuccessfully",
+            "content":{
+                "application/json":
+                {
+                    "schema":{
+                        "$ref":"#/component/schemas/book"
+                    }
+                }
+            }
+        },
+        "400":
+        {
+            "description":"bad request -Validation error",
+            "content":{
+                "application/json":{
+                    "schema":{
+                        "type": "object",
+                        "properties":{
+                            "message":{
+                                "type":"string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+},
+"/books/list":
+{
+    "get":
+    {
+        "tags":["book"],
+        "summary":"Get all bookss",
+        "description":"Returns all the books",
+        "responses":{
+            "200":
+            {
+                "description":"All the books",
+                "content":{
+                    "application/json":
+                    {
+                        "schema":{
+                            "type":"array",
+                            "items":{
+                                "$ref":"#/component/schemas/book"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+},
+"/books/update/{id}":
+{
+    "put":
+    {
+        "tags":["book"],
+        "summary":"Update a book",
+        "description":"Updates a book with the provided details",
+        "parameters":[
+            {
+                "name":"in",
+                "in":"path",
+                "required":true,
+                "schema":{
+                    "type":"string"
+                }
+            }
+        ],
+        "requestBody":{
+            "content":{
+                "application/json":
+                {
+                    "schema":{
+                        "$ref": "#/component/schemas/book"
+                    }
+                }
+            }
+        }
+    }
+},
+
+"/books/get/{id}":{
+    "get":
+    {
+        "tags":["book"],
+        "summary":"Get a book by id",
+        "description":"Returns a book with the provided id",
+        "parameters":[
+            {
+                "name":"id",
+                "in":"path",
+                "required":true,
+                "schema":{
+                    "type":"string"
+                }
+            }
+        ],
+        "responses":{
+            "200":
+            {
+                "description":"book found",
+                "content":{
+                    "application/json":
+                    {
+                        "schema":{
+                            "$ref":"#/component/schemas/book"
+                        }
+                    }
+                }
+            },
+            "404":
+            {
+                "description":"book not found",
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "type": "object",
+                            "properties":{
+                                "message":{
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+},
+
+"/books/getting/{category}":{
+    "get":
+    {
+        "tags":["book"],
+        "summary":"Get a book by category",
+        "description":"Returns a book with the provided id",
+        "parameters":[
+            {
+                "name":"category",
+                "in":"path",
+                "required":true,
+                "schema":{
+                    "type":"string"
+                }
+            }
+        ],
+        "responses":{
+            "200":
+            {
+                "description":"book found",
+                "content":{
+                    "application/json":
+                    {
+                        "schema":{
+                            "$ref":"#/component/schemas/book"
+                        }
+                    }
+                }
+            },
+            "404":
+            {
+                "description":"book not found",
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "type": "object",
+                            "properties":{
+                                "message":{
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+},
+
+"/books/delete/{id}":{
+    "delete":
+    {
+        "tags":["book"],
+        "summary":"Delete a book",
+        "description":"Deletes a book with the provided id",
+        "parameters":[
+            {
+                "name":"id",
+                "in":"path",
+                "required":true,
+                "schema":{
+                    "type":"string"
+                }
+            }
+        ],
+        "responses":{
+            "200":
+            {
+                "description":"book deleted",
+                "content":{
+                    "application/json":
+                    {
+                        "schema":{
+                            "$ref":"#/component/schemas/book"
+                        }
+                    }
+                }
+            },
+            "404":
+            {
+                "description":"book not found",
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "type": "object",
+                            "properties":{
+                                "message":{
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+    },
+    "component":
+    {
+"schemas":{
+    "user":
+    {
+        "type": "object",
+        "properties": {
+            "firstName": {
+                "type": "string",
+                "description": "First name of the User"
+            },
+            "lastName": {
+                "type": "string",
+                "description": "Last name of the User"
+            },
+            "email": {
+                "type": "string",
+                "description": "Email of the User"
+            },
+            "password": {
+                "type": "string",
+                "description": "Password of the User"
+            },
+            "role": [{
+                "type": "Schema.Types.ObjectId",
+                "ref": "Role",
+                "required": false
+            }],
+            "otp": {
+                "type": "number",
+               "required": true
+            }
+        },
+        "required":["name","email","password","otp"]  
+    },
+    "book":
+    {
+        "type":"object",
+        "properties":
+        {
+            "bookName":
+            {
+                "type":"string",
+                
+                "required":true
+                
+            },
+
+            "authorName":
+            {
+                "type":"string",
+                
+                "required":true 
+            },
+            "description":{
+                "type":"string"
+            },
+            "category":
+            {
+                "type":"string",
+                "required":true,
+                "enum":["Novels","History", "Science", "Poetry", "Recipe", "Comic"]
+            },
+            "link":
+            {
+               "type":"string",
+               "required":false
+            },
+
+           "checkBook":{
+                "completed":{
+                    "type":"Boolean",
+                   "require":false
+                }
+            }
+        },
+        "required": ["bookName","authorName","category"]
+    }  
+    }
+    }
+}
+    
